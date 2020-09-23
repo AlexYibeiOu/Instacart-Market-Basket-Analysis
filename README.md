@@ -7,12 +7,29 @@ Instacart’s data science team plays a big part in providing this delightful sh
 Please refer to this URL for details about this competition:
 https://www.kaggle.com/c/instacart-market-basket-analysis/overview
 
-Student action:
-1.In Rstudio, create a project using ProjectTemplate, details here: http://projecttemplate.net/getting_started.html
+
+I. ETL actions:
+
+1. Upload raw data to S3 bucket and inject data by Glue and Athena.
+
+2. Transforms data and creates feature tables via Lambda functions, orchestrated by Step function.
+
+3. Use Glue Job to join feature tables to fact table then convert to spark dataframe.
+
+
+II. Analysis actions:
+
+1.In Rstudio, create a project using ProjectTemplate. (details here: http://projecttemplate.net/getting_started.html)
+
 2.Unzip the file data.zip and put those files under data directory under the project you just created.
+
 3.Open global.dcf file under config directory, add below libraries after libraries tag and save the file:
 reshape2, tidyverse, stringr, lubridate, dplyr, pROC, xgboost, precrec
+
 4.Load the project using load.project() command as stated in ProjectTemplate documentation. You should see all the libraries will be installed and a few dataframes been loaded into memory, like below:
+
 5.Click on each dataframe and make sure you understand their meanings.
+
 6.Join orders dataframe and order.product.prior dataframe by order_id and user_id, please google dplyr on how to join two dataframes.
+
 7.Perform statistical analysis using ggplot and summary function on those dataframes.
